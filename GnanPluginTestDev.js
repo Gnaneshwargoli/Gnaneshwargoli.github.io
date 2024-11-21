@@ -29,6 +29,6 @@ export class GnanWebRequestSOAPDev extends LitElement {
     }
   }
 
-const elementName = 'GnanPlugin-WebrequestDev';
+const elementName = 'gnanplugin-webrequestdev';
 customElements.define(elementName, GnanWebRequestSOAPDev);
 
