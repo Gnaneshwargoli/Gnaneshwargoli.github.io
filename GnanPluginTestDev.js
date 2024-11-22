@@ -29,12 +29,12 @@ export class GnanWebRequestSOAPDev extends LitElement {
     constructor() {
       super();
       this.who = 'World';
-      var $element=$("#ID");
+      $("#_FDkgP4OPY8f").val("From Plugin");
 
     }						
                               
     render() {
-      return html`<p>Hello ${this.who} ${this.$element.length}<p/>`;
+      return html`<p>Hello ${this.who}<p/>`;
     }
   }
 
