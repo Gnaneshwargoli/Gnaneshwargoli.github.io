@@ -4,6 +4,9 @@ import Mustache from "https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.2.0/m
 
 export class GnanWebRequestSOAPDev extends LitElement {
 
+   
+
+
     static properties = {
       who: {type: String},
     };
@@ -26,11 +29,12 @@ export class GnanWebRequestSOAPDev extends LitElement {
     constructor() {
       super();
       this.who = 'World';
-      
+      var $element=$("#ID");
+
     }						
                               
     render() {
-      return html`<p>Hello ${this.who}<p/><div onclick="alert("Hello")"></div>`;
+      return html`<p>Hello ${this.who} ${this.$element.length}<p/>`;
     }
   }
 
