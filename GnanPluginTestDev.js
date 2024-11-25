@@ -41,11 +41,11 @@ export class GnanWebRequestSOAPDev extends LitElement {
     }
 
     async makeSoapRequest() {
-       const serviceID;
-       const servicePassword;
-       const nonce;
-       const createdDate;
-       const repIDInfo;
+       const serviceID='ERA-PMT-PNCIHierarchyInfo-serviceID';
+       const servicePassword='R404?d!$5dsiC3YagT+1A$M*iSUcqZ';
+       const nonce='BwFC2HW6jfMgHr/N9OCyfw==';
+       const createdDate='2017-12-14T21:23:28.843Z';
+       const repIDInfo='1234';
         const soapEnvelope = ` var soapenvelope =
           "<soapenv:Envelope xmlns:get=\"http://www.pnc.com/pmt/GetRKIInfoService\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">" +
               "<soapenv:Header>" +
@@ -66,7 +66,7 @@ export class GnanWebRequestSOAPDev extends LitElement {
           "</soapenv:Envelope>";
       `;
         try {
-            const response = await fetch('https://your-soap-service-url', {
+            const response = await fetch('https://pmt-sst-qa.pncint.net/pmt-getrkiinfoService', {
                 method: 'POST', headers: {
                     'Content-Type': 'text/xml; charset=utf-8',
                     'SOAPAction': 'getPNCIHierarchyInfo',
