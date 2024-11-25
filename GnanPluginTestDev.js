@@ -9,6 +9,7 @@ export class GnanWebRequestSOAPDev extends LitElement {
 
     static properties = {
       who: {type: String},
+       response: { type: String },
     };
 
     static getMetaConfig() {
@@ -29,6 +30,7 @@ export class GnanWebRequestSOAPDev extends LitElement {
     constructor() {
       super();
       this.who = 'World';
+       this.response='';
 
     }						
                               
