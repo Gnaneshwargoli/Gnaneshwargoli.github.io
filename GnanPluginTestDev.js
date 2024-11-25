@@ -41,6 +41,11 @@ export class GnanWebRequestSOAPDev extends LitElement {
     }
 
     async makeSoapRequest() {
+       const serviceID;
+       const servicePassword;
+       const nonce;
+       const createdDate;
+       const repIDInfo;
         const soapEnvelope = ` var soapenvelope =
           "<soapenv:Envelope xmlns:get=\"http://www.pnc.com/pmt/GetRKIInfoService\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">" +
               "<soapenv:Header>" +
