@@ -41,12 +41,30 @@ export class GnanWebRequestSOAPDev extends LitElement {
     }
 
     async makeSoapRequest() {
-        const soapEnvelope = ` <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.example.com/webservice"> <soapenv:Header/> <soapenv:Body> <web:YourMethod> <web:Parameter1>Value1</web:Parameter1> <web:Parameter2>Value2</web:Parameter2> </web:YourMethod> </soapenv:Body> </soapenv:Envelope> `;
+        const soapEnvelope = ` var soapenvelope =
+          "<soapenv:Envelope xmlns:get=\"http://www.pnc.com/pmt/GetRKIInfoService\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">" +
+              "<soapenv:Header>" +
+              "<wsse:Security soapenv:mustUnderstand=\"1\" xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\">" +
+                  "<wsse:UsernameToken wsu:Id=\"UsernameToken-1\">" +
+                      "<wsse:Username>" + serviceID + "</wsse:Username>" +
+                      "<wsse:Password Type=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText\">" + servicePassword + "</wsse:Password>" +
+                      "<wsse:Nonce EncodingType=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary\">" + nonce + "</wsse:Nonce>" +
+                      "<wsu:Created>" + createdDate + "</wsu:Created>" +
+                  "</wsse:UsernameToken>" +
+              "</wsse:Security>" +
+              "</soapenv:Header>" +
+              "<soapenv:Body>" +
+                  "<get:PNCIHierarchyInfoRequest >" +
+                  repIDInfo +
+                  "</get:PNCIHierarchyInfoRequest>" +
+              "</soapenv:Body>" +
+          "</soapenv:Envelope>";
+      `;
         try {
             const response = await fetch('https://your-soap-service-url', {
                 method: 'POST', headers: {
                     'Content-Type': 'text/xml; charset=utf-8',
-                    'SOAPAction': 'http://www.example.com/webservice/YourMethod',
+                    'SOAPAction': 'getPNCIHierarchyInfo',
                     // Modify the action based on your SOAP service 
                 },
                 body: soapEnvelope,
