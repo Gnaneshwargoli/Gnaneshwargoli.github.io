@@ -87,7 +87,7 @@ export class GnanWebRequestSOAPDev extends LitElement {
     }
                               
     render() {
-      return html`<p>Hello ${this.who} ${this.titlefield}<p/>`;
+      return html`<p>Hello ${this.who} ${this.response}<p/>`;
     }
   }
 
