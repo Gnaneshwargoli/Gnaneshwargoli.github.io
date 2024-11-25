@@ -1,4 +1,6 @@
-import { LitElement, html, css } from 'lit';
+import { html,LitElement,css} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
+import {JSONPath} from 'https://cdn.jsdelivr.net/npm/jsonpath-plus@10.1.0/dist/index-browser-esm.min.js';
+import Mustache from "https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.2.0/mustache.min.js";
 
 class DevSoapRequestComponent extends LitElement {
     static styles = css` /* Add any CSS styles here */ `;
