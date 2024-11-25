@@ -29,7 +29,6 @@ export class GnanWebRequestSOAPDev extends LitElement {
     constructor() {
       super();
       this.who = 'World';
-      var titlefield=$("#_FDkgP4OPY8f");
 
     }						
                               
