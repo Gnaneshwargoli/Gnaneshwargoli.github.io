@@ -6,27 +6,12 @@ class DevSoapRequestComponent extends LitElement {
     static styles = css` /* Add any CSS styles here */ `;
     static properties = {
         response: { type: String },
-        who:{type:String},
     };
 
-    static getMetaConfig() {
-        return {
-          controlName: 'Plugin SOAP Dev',
-          fallbackDisableSubmit: false,
-          version: '1.2',
-          properties: {
-            who: {
-              type: 'string',
-              title: 'Who',
-              description: 'Who to say hello to'
-            }
-          }
-        };
-      }	
+    
     constructor() {
         super();
         this.response = '';
-        this.who='Test';
     }
     // Send SOAP request when the component is first updated 
     updated(changedProperties) {
