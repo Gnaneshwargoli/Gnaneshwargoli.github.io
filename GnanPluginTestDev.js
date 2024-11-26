@@ -69,7 +69,7 @@ export class GnanWebRequestSOAPDev extends LitElement {
                          <erad:listFutureMarkets> false </erad:listFutureMarkets>
                     </erad:MarketNameRequest>
                 </soapenv:Body>
-            "</soapenv:Envelope>`;
+            </soapenv:Envelope>`;
         try {
             const response = await fetch('https://pmt-sst-qa.pncint.net/pmt-eradblookupservice/', {
                 method: 'POST', 
