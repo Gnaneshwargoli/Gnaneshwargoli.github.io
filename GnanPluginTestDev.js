@@ -66,7 +66,7 @@ export class GnanWebRequestSOAPDev extends LitElement {
               </wsse:Security>
               </soapenv:Header>
               <soapenv:Body>
-                  <get:PNCIHierarchyInfoRequest >${repIDInfo} </get:PNCIHierarchyInfoRequest>
+                  <PNCIHierarchyInfoRequest >${repIDInfo} </PNCIHierarchyInfoRequest>
                </soapenv:Body>
           </soapenv:Envelope>`;
         try {
