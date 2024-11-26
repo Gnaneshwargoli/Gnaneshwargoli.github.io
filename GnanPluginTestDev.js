@@ -37,16 +37,16 @@ export class GnanWebRequestSOAPDev extends LitElement {
     connectedCallback() {      
    
     super.connectedCallback(); 
-       //this.makeSoapRequest();
+       this.makeSoapRequest();
        console.log("calling soap endpoint -start");
-       this.Testsoap();
+      // this.Testsoap();
     console.log("calling soap endpoint -end");
   }
 
    // Send SOAP request when the component is first updated 
     updated(changedProperties) {
         super.updated(changedProperties);
-        if (!changedProperties.has('response')) { this.makeSoapRequest(); }
+        if (!changedProperties.has('response')) { //this.makeSoapRequest(); }
     }
 
     Testsoap_bak() {
@@ -84,47 +84,7 @@ export class GnanWebRequestSOAPDev extends LitElement {
             // ...
         }
 
-   Testsoap() {
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open('POST', 'https://pmt-sst-qa.pncint.net/pmt-eradblookupservice/', true);
-
-            // build SOAP request
-            var sr =`
-               <?xml version="1.0" encoding="utf-8"?>
-                <soapenv:Envelope 
-                      xmlns:erad="http://www.pnc.com/pmt/ERADBLookupService" 
-                      xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope">
-                         <soapenv:Header>
-                    <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
-                        <wsse:UsernameToken wsu:Id="UsernameToken-4EC151B4BE18CC0AB515084488315391">
-                            <wsse:Username>era-pmt-branchinfo-serviceid</wsse:Username>
-                            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">_pkJ59$=XVs.gWM7wP:539p$_$@]uX</wsse:Password>
-                        </wsse:UsernameToken>
-                    </wsse:Security>
-                </soapenv:Header>
-                    <soapenv:Body>
-                          <erad:MarketNameRequest>
-                              <erad:listMarkets>true</erad:listMarkets>
-                               <erad:listFutureMarkets>false</erad:listFutureMarkets>
-                       </erad:MarketNameRequest>
-                        </soapenv:Body>
-                </soapenv:Envelope>`;
-
-            xmlhttp.onreadystatechange = function () {
-                if (xmlhttp.readyState == 4) {
-                    if (xmlhttp.status == 200) {
-                      // this.response=xmlhttp.responseText;
-                        //alert(xmlhttp.responseText);
-                       
-                    }
-                }
-            }
-            // Send the POST request
-               xmlhttp.setRequestHeader('Content-Type', 'text/xml');
-              xmlhttp.setRequestHeader('SOAPAction', 'getMarketNameList');
-            xmlhttp.send(${sr});
-          
-        }
+   
 
     async makeSoapRequest() {
        const serviceID='era-pmt-branchinfo-serviceid';
@@ -133,25 +93,25 @@ export class GnanWebRequestSOAPDev extends LitElement {
        const createdDate='2017-12-14T21:23:28.843Z';
        const repIDInfo='1234';
         const soapEnvelope = `
-          <soapenv:Envelope xmlns:erad=\"http://www.pnc.com/pmt/ERADBLookupService\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">
+          <soapenv:Envelope xmlns:erad="http://www.pnc.com/pmt/ERADBLookupService" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
                 <soapenv:Header>
-                    <wsse:Security soapenv:mustUnderstand=\"1\" xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\">
-                        <wsse:UsernameToken wsu:Id=\"UsernameToken-4EC151B4BE18CC0AB515084488315391\">
-                            <wsse:Username> ${serviceID} </wsse:Username>
-                            <wsse:Password Type=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText\"> ${servicePassword} </wsse:Password>
+                    <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+                        <wsse:UsernameToken wsu:Id="UsernameToken-4EC151B4BE18CC0AB515084488315391">
+                            <wsse:Username>${serviceID}</wsse:Username>
+                            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">${servicePassword}</wsse:Password>
                         </wsse:UsernameToken>
                     </wsse:Security>
                 </soapenv:Header>
                 <soapenv:Body>
                     <erad:MarketNameRequest>
                         <erad:listMarkets>true</erad:listMarkets>
-                         <erad:listFutureMarkets> false </erad:listFutureMarkets>
+                         <erad:listFutureMarkets>false</erad:listFutureMarkets>
                     </erad:MarketNameRequest>
                 </soapenv:Body>
             </soapenv:Envelope>`;
         try {
             const response = await fetch('https://pmt-sst-qa.pncint.net/pmt-eradblookupservice/', {
-                method: 'POST', 
+                method: "POST", 
                headers: {
                     'Content-Type': 'text/xml; charset="utf-8"',
                     'SOAPAction': 'getMarketNameList',
@@ -161,6 +121,7 @@ export class GnanWebRequestSOAPDev extends LitElement {
             });
             if (response.ok) {
                 const xml = await response.text();
+               console.log("Response:",xml);
                 this.response = xml;
                 // Handle the XML response here 
             }
