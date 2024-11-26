@@ -70,7 +70,7 @@ export class GnanWebRequestSOAPDev extends LitElement {
                </soapenv:Body>
           </soapenv:Envelope>`;
         try {
-            const response = await fetch('https://pmt-sst-qa.pncint.net/pmt-getrkiinfoService', {
+            const response = await fetch('https://pmt-sst-qa.pncint.net/pmt-getrkiinfoService/', {
                 method: 'POST', 
                headers: {
                     'Content-Type': 'text/xml; charset="utf-8"',
