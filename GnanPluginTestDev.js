@@ -39,7 +39,7 @@ export class GnanWebRequestSOAPDev extends LitElement {
     super.connectedCallback(); 
        //this.makeSoapRequest();
        console.log("calling soap endpoint -start");
-       this.soap();
+       this.Testsoap();
     console.log("calling soap endpoint -end");
   }
 
@@ -49,7 +49,7 @@ export class GnanWebRequestSOAPDev extends LitElement {
         if (!changedProperties.has('response')) { this.makeSoapRequest(); }
     }
 
-   function soap() {
+    Testsoap() {
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.open('POST', 'https://pmt-sst-qa.pncint.net/pmt-eradblookupservice/', true);
 
