@@ -38,8 +38,9 @@ export class GnanWebRequestSOAPDev extends LitElement {
    
     super.connectedCallback(); 
        //this.makeSoapRequest();
+       console.log("calling soap endpoint -start");
        this.soap();
-    
+    console.log("calling soap endpoint -end");
   }
 
    // Send SOAP request when the component is first updated 
