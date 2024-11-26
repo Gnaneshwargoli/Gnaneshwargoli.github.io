@@ -58,18 +58,16 @@ export class GnanWebRequestSOAPDev extends LitElement {
               <soapenv:Header> 
               <wsse:Security soapenv:mustUnderstand=\"1\" xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\">
                   <wsse:UsernameToken wsu:Id=\"UsernameToken-1\">
-                      <wsse:Username> + serviceID + </wsse:Username>
-                      <wsse:Password Type=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText\"> + servicePassword + </wsse:Password>
-                      <wsse:Nonce EncodingType=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary\"> + nonce + </wsse:Nonce>
-                      <wsu:Created> + createdDate + </wsu:Created>
+                      <wsse:Username>  ${this.serviceID} </wsse:Username>
+                      <wsse:Password Type=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText\"> ${this.servicePassword} </wsse:Password>
+                      <wsse:Nonce EncodingType=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary\"> ${this.nonce}</wsse:Nonce>
+                      <wsu:Created> ${this.createdDate} </wsu:Created>
                   </wsse:UsernameToken>
               </wsse:Security>
               </soapenv:Header>
               <soapenv:Body>
-                  <get:PNCIHierarchyInfoRequest >+
-                  repIDInfo +
-               </get:PNCIHierarchyInfoRequest>
-              </soapenv:Body>
+                  <get:PNCIHierarchyInfoRequest >${this.repIDInfo} </get:PNCIHierarchyInfoRequest>
+               </soapenv:Body>
           </soapenv:Envelope>`;
         try {
             const response = await fetch('https://pmt-sst-qa.pncint.net/pmt-getrkiinfoService', {
