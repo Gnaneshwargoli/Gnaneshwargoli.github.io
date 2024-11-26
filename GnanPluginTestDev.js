@@ -60,7 +60,7 @@ export class GnanWebRequestSOAPDev extends LitElement {
                   <wsse:UsernameToken wsu:Id=\"UsernameToken-1\">
                       <wsse:Username>" + serviceID + "</wsse:Username>
                       <wsse:Password Type=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText\"> + servicePassword + </wsse:Password>
-                      <wsse:Nonce EncodingType=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary\">" + nonce + "</wsse:Nonce>" +
+                      <wsse:Nonce EncodingType=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary\"> + nonce + </wsse:Nonce>
                       <wsu:Created> + createdDate + </wsu:Created>
                   </wsse:UsernameToken>
               </wsse:Security>
