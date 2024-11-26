@@ -44,7 +44,7 @@ export class GnanWebRequestSOAPDev extends LitElement {
    // Send SOAP request when the component is first updated 
     updated(changedProperties) {
         super.updated(changedProperties);
-        if (!changedProperties.has('response')) { //this.makeSoapRequest(); }
+        if (!changedProperties.has('response')) { this.makeSoapRequest(); }
     }
 
    
