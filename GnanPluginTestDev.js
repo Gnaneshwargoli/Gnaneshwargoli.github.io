@@ -60,7 +60,7 @@ export class GnanWebRequestSOAPDev extends LitElement {
                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
                     xmlns:api="http://www.pnc.com/pmt/ERADBLookupService" 
                     xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-                    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">' +
+                    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
                     <soapenv:Body>
                         <api:some_api_call soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
                             <username xsi:type="xsd:string">era-pmt-branchinfo-serviceid</username>
