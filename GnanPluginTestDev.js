@@ -38,9 +38,7 @@ export class GnanWebRequestSOAPDev extends LitElement {
    
     super.connectedCallback(); 
        this.makeSoapRequest();
-       console.log("calling soap endpoint -start");
-      // this.Testsoap();
-    console.log("calling soap endpoint -end");
+       
   }
 
    // Send SOAP request when the component is first updated 
@@ -49,43 +47,7 @@ export class GnanWebRequestSOAPDev extends LitElement {
         if (!changedProperties.has('response')) { //this.makeSoapRequest(); }
     }
 
-    Testsoap_bak() {
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open('POST', 'https://pmt-sst-qa.pncint.net/pmt-eradblookupservice/', true);
-
-            // build SOAP request
-            var sr =`
-               <?xml version="1.0" encoding="utf-8"?>
-                <soapenv:Envelope 
-                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-                    xmlns:api="http://www.pnc.com/pmt/ERADBLookupService" 
-                    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-                    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-                    <soapenv:Body>
-                        <api:some_api_call soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-                            <username xsi:type="xsd:string">era-pmt-branchinfo-serviceid</username>
-                            <password xsi:type="xsd:string">_pkJ59$=XVs.gWM7wP:539p$_$@]uX</password>
-                        </api:some_api_call>
-                    </soapenv:Body>
-                </soapenv:Envelope>`;
-
-            xmlhttp.onreadystatechange = function () {
-                if (xmlhttp.readyState == 4) {
-                    if (xmlhttp.status == 200) {
-                        //alert(xmlhttp.responseText);
-                       
-                    }
-                }
-            }
-            // Send the POST request
-            xmlhttp.setRequestHeader('Content-Type', 'text/xml');
-            xmlhttp.send(sr);
-            // send request
-            // ...
-        }
-
    
-
     async makeSoapRequest() {
        const serviceID='era-pmt-branchinfo-serviceid';
        const servicePassword='_pkJ59$=XVs.gWM7wP:539p$_$@]uX';
