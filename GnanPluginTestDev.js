@@ -71,8 +71,9 @@ export class GnanWebRequestSOAPDev extends LitElement {
           </soapenv:Envelope>`;
         try {
             const response = await fetch('https://pmt-sst-qa.pncint.net/pmt-getrkiinfoService', {
-                method: 'POST', headers: {
-                    'Content-Type': 'text/xml; charset=utf-8',
+                method: 'POST', 
+               headers: {
+                    'Content-Type': 'text/xml; charset="utf-8"',
                     'SOAPAction': 'getPNCIHierarchyInfo',
                     // Modify the action based on your SOAP service 
                 },
