@@ -121,7 +121,7 @@ export class GnanWebRequestSOAPDev extends LitElement {
             }
             // Send the POST request
             xmlhttp.setRequestHeader('Content-Type', 'text/xml');
-           xmlhttp.setRequestHeader('SOAPAction': 'getMarketNameList');
+           xmlhttp.setRequestHeader('SOAPAction', 'getMarketNameList');
             xmlhttp.send(sr);
             // send request
             // ...
