@@ -1,6 +1,6 @@
 import { html, LitElement } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
 // define the component
-export class RicohTestBasicPlugin extends LitElement {
+export class RicohTestBasicPluginDev extends LitElement {
 
     static properties = {
         who: { type: String },
@@ -35,4 +35,4 @@ export class RicohTestBasicPlugin extends LitElement {
 
 // registering the web component
 const elementName = 'ricoh-testplugin-testdev';
-customElements.define(elementName, RicohTestBasicPlugin);
+customElements.define(elementName, RicohTestBasicPluginDev);
