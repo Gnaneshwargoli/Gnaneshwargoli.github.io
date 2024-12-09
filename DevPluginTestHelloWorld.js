@@ -9,7 +9,7 @@ export class RicohTestBasicPluginDev extends LitElement {
     // return a promise for contract changes.
     static getMetaConfig() {
         return {
-            controlName: 'Hello World Dev',
+            controlName: 'Hello World Dev Test',
             fallbackDisableSubmit: false,
             version: '1.0',
             properties: {
