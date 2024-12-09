@@ -9,7 +9,6 @@ export class RicohTestBasicPluginDev extends LitElement {
     // return a promise for contract changes.
     static getMetaConfig() {
         return {
-             //groupName : "ONC Custom (Dont use)",
             controlName: 'Hello World Dev',
             fallbackDisableSubmit: false,
             version: '1.0',
