@@ -9,7 +9,7 @@ export class RicohTestBasicPlugin extends LitElement {
     // return a promise for contract changes.
     static getMetaConfig() {
         return {
-             groupName : "ONC Custom (Dont use)",
+             //groupName : "ONC Custom (Dont use)",
             controlName: 'Hello World',
             fallbackDisableSubmit: false,
             version: '1.0',
@@ -34,5 +34,5 @@ export class RicohTestBasicPlugin extends LitElement {
 }
 
 // registering the web component
-const elementName = 'ricoh-testplugin-test';
+const elementName = 'ricoh-testplugin-test1';
 customElements.define(elementName, RicohTestBasicPlugin);
