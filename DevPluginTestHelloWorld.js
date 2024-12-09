@@ -9,6 +9,7 @@ export class RicohTestBasicPluginDevtest extends LitElement {
     // return a promise for contract changes.
     static getMetaConfig() {
         return {
+            groupName:'Dev Group (Dont use)',
             controlName: 'Hello World Dev Test',
             fallbackDisableSubmit: false,
             version: '1.0',
