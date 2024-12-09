@@ -10,7 +10,7 @@ export class RicohTestBasicPlugin extends LitElement {
     static getMetaConfig() {
         return {
              //groupName : "ONC Custom (Dont use)",
-            controlName: 'Hello World',
+            controlName: 'Hello World Dev',
             fallbackDisableSubmit: false,
             version: '1.0',
             properties: {
